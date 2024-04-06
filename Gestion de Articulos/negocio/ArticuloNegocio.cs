@@ -10,6 +10,33 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
+        public void agregar(Articulo nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @ImagenUrl, @Precio)");
+                datos.setearParametro("@Codigo", nuevoArticulo.Codigo);
+                datos.setearParametro("@Nombre", nuevoArticulo.Nombre);
+                datos.setearParametro("@Descripcion", nuevoArticulo.Descripcion);
+                datos.setearParametro("@IdMarca", nuevoArticulo.Marca.Id);
+                datos.setearParametro("@IdCategoria", nuevoArticulo.Categoria.Id);
+                datos.setearParametro("@ImagenUrl", nuevoArticulo.ImagenUrl);
+                datos.setearParametro("@Precio", nuevoArticulo.Precio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
@@ -33,7 +60,10 @@ namespace negocio
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
-                    aux.ImagenUrl = (string)lector["ImagenUrl"];
+
+                    if (!(lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl = (string)lector["ImagenUrl"];
+
                     aux.Precio = (decimal)lector["Precio"];
                     aux.Marca = new Marca();
                     aux.Marca.Id = (int)lector["IdMarca"];
@@ -56,5 +86,7 @@ namespace negocio
 
 
         }
+
+        
     }
 }

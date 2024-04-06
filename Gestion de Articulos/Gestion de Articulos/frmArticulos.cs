@@ -22,12 +22,20 @@ namespace Gestion_de_Articulos
 
         private void frmArticulos_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulo = negocio.listar();
-            dgvArticulos.DataSource = listaArticulo;
-            dgvArticulos.Columns["ImagenUrl"].Visible = false;
-            dgvArticulos.Columns["Id"].Visible = false;
-            cargarImagen(listaArticulo[0].ImagenUrl);
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                listaArticulo = negocio.listar();
+                dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["ImagenUrl"].Visible = false;
+                dgvArticulos.Columns["Id"].Visible = false;
+                cargarImagen(listaArticulo[0].ImagenUrl);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
             
         }
