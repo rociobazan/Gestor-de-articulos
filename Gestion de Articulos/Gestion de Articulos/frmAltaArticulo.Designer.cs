@@ -1,6 +1,6 @@
 ﻿namespace Gestion_de_Articulos
 {
-    partial class frmAgregarArticulo
+    partial class frmAltaArticulo
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,8 @@
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.pbxNuevoArt = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxNuevoArt)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -126,7 +128,7 @@
             // 
             this.tbxDescripcion.Location = new System.Drawing.Point(249, 145);
             this.tbxDescripcion.Name = "tbxDescripcion";
-            this.tbxDescripcion.Size = new System.Drawing.Size(505, 26);
+            this.tbxDescripcion.Size = new System.Drawing.Size(259, 26);
             this.tbxDescripcion.TabIndex = 9;
             // 
             // tbxImagenUrl
@@ -135,6 +137,7 @@
             this.tbxImagenUrl.Name = "tbxImagenUrl";
             this.tbxImagenUrl.Size = new System.Drawing.Size(259, 26);
             this.tbxImagenUrl.TabIndex = 10;
+            this.tbxImagenUrl.Leave += new System.EventHandler(this.tbxImagenUrl_Leave);
             // 
             // tbxPrecio
             // 
@@ -171,11 +174,21 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // frmAgregarArticulo
+            // pbxNuevoArt
+            // 
+            this.pbxNuevoArt.Location = new System.Drawing.Point(576, 45);
+            this.pbxNuevoArt.Name = "pbxNuevoArt";
+            this.pbxNuevoArt.Size = new System.Drawing.Size(321, 314);
+            this.pbxNuevoArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxNuevoArt.TabIndex = 15;
+            this.pbxNuevoArt.TabStop = false;
+            // 
+            // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(942, 450);
+            this.Controls.Add(this.pbxNuevoArt);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.cboMarca);
@@ -191,9 +204,10 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblNombre);
-            this.Name = "frmAgregarArticulo";
-            this.Text = "frmAgregarArticulo";
+            this.Name = "frmAltaArticulo";
+            this.Text = "Agregar Articulo";
             this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxNuevoArt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +230,6 @@
         private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.PictureBox pbxNuevoArt;
     }
 }

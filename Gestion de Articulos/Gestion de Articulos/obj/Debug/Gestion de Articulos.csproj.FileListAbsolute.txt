@@ -22,7 +22,6 @@ C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Artic
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\bin\Debug\Dominio.pdb
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\bin\Debug\negocio.pdb
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion de Articulos.csproj.AssemblyReference.cache
-C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion_de_Articulos.frmAgregarArticulo.resources
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion_de_Articulos.frmArticulos.resources
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion_de_Articulos.Properties.Resources.resources
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion de Articulos.csproj.GenerateResource.cache
@@ -30,3 +29,4 @@ C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Artic
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion .98154945.Up2Date
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion de Articulos.exe
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion de Articulos.pdb
+C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion_de_Articulos.frmAltaArticulo.resources
