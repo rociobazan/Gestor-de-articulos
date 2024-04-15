@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using negocio;
 using Dominio;
+using Gestion_de_Articulos;
 
 namespace Gestion_de_Articulos
 {
@@ -37,8 +38,11 @@ namespace Gestion_de_Articulos
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.ImagenUrl);
+            if(dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenUrl);
+            }
         }
 
         public void cargarImagen(String imagen)
@@ -65,9 +69,17 @@ namespace Gestion_de_Articulos
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulo = negocio.listar();
             dgvArticulos.DataSource = listaArticulo;
-            dgvArticulos.Columns["ImagenUrl"].Visible = false;
-            dgvArticulos.Columns["Id"].Visible = false;
+            ocultarColumnas();
             cargarImagen(listaArticulo[0].ImagenUrl);
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Codigo");
+            cboCampo.Items.Add("Precio");
+        }
+
+        private void ocultarColumnas()
+        {
+            dgvArticulos.Columns ["ImagenUrl"].Visible = false;
+            dgvArticulos.Columns ["Id"].Visible = false;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -101,9 +113,83 @@ namespace Gestion_de_Articulos
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnVerDetalle_Click(object sender, EventArgs e)
         {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmDetalles ventanaDetalles = new frmDetalles(seleccionado);
+            ventanaDetalles.ShowDialog();
+        }
+        
 
+        private void tbxFiltrar_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            String filtro = tbxFiltrar.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+            ocultarColumnas();
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+
+            if (opcion == "Precio") 
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Igual a");
+                cboCriterio.Items.Add("Menor a");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Contiene");
+                cboCriterio.Items.Add("Termina con");
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = tbxFiltroAvanzado.Text;
+                dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cboCampo.Items.Clear();
+            cboCriterio.Items.Clear();
+            tbxFiltroAvanzado.Clear();
+            cargar();
+        }
+
+        private void btnMarcasCategorias_Click(object sender, EventArgs e)
+        {
+            frmMarcasCategorias frmMarcasCategorias = new frmMarcasCategorias();
+            frmMarcasCategorias.ShowDialog();
         }
     }
+      
 }
