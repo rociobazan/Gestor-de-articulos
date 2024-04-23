@@ -9,12 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using System.IO;
+using static System.Collections.Specialized.BitVector32;
+using System.Configuration;
 
 namespace Gestion_de_Articulos
 {
     public partial class frmAltaArticulo : Form
     {
         private Articulo articulo = null;
+        private OpenFileDialog imagen = null;
 
         public frmAltaArticulo()
         {
@@ -38,10 +42,12 @@ namespace Gestion_de_Articulos
                 cboMarca.DataSource = marcaNegocio.listar();
                 cboMarca.DisplayMember = "Descripcion";
                 cboMarca.ValueMember = "Id";
+                cboMarca.SelectedIndex = -1;
 
                 cboCategoria.DataSource = categoriaNegocio.listar();
                 cboCategoria.DisplayMember = "Descripcion";
                 cboCategoria.ValueMember = "Id";
+                cboCategoria.SelectedIndex = -1;
 
 
                 if (articulo != null)
@@ -51,7 +57,7 @@ namespace Gestion_de_Articulos
                     tbxDescripcion.Text = articulo.Descripcion;
                     tbxImagenUrl.Text = articulo.ImagenUrl;
                     tbxPrecio.Text = articulo.Precio.ToString();
-                    cargarImagen(articulo.ImagenUrl);
+                    Helper.cargarImagen(pbxNuevoArt, articulo.ImagenUrl);
                     cboMarca.SelectedValue = articulo.Marca.Id;
                     cboCategoria.SelectedValue = articulo.Categoria.Id;
                 }
@@ -59,18 +65,18 @@ namespace Gestion_de_Articulos
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-             //Articulo articulo = new Articulo();
              ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
-            {  
+            {
+                if (validarFormulario())
+                    return;
                 if(articulo == null)
                     articulo = new Articulo();
                 
@@ -80,9 +86,16 @@ namespace Gestion_de_Articulos
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 articulo.ImagenUrl = tbxImagenUrl.Text;
+                if (!Helper.soloNumeros(tbxPrecio.Text))
+                    return;
                 articulo.Precio = Decimal.Parse(tbxPrecio.Text);
+                
+                if(imagen != null && !(tbxImagenUrl.Text.ToUpper().Contains("HTTP")))
+                {
+                    File.Copy(imagen.FileName, ConfigurationManager.AppSettings["img"] + imagen.SafeFileName);
+                }
 
-                if(articulo.Id != 0)
+                if (articulo.Id != 0)
                 {
                     negocio.modificar(articulo);
                     MessageBox.Show("Modificado exitosamente");
@@ -97,29 +110,39 @@ namespace Gestion_de_Articulos
                 Close();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.ToString());
             }
-        }
-        public void cargarImagen(String imagen)
-        {
-            try
-            {
-                pbxNuevoArt.Load(imagen);
-            }
-            catch
-            {
-
-                pbxNuevoArt.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?w=740");
-            }
-        }
-        private void tbxImagenUrl_Leave(object sender, EventArgs e)
-        {
-            cargarImagen(tbxImagenUrl.Text);
         }
 
         
+        private void tbxImagenUrl_Leave(object sender, EventArgs e)
+        {
+            Helper.cargarImagen(pbxNuevoArt, tbxImagenUrl.Text);
+        }
+
+        private bool validarFormulario()
+        {
+           if(!Helper.validarVacio(tbxNombre.Text) || !Helper.validarVacio(tbxCodigo.Text) || !Helper.validarVacio(tbxDescripcion.Text) || !Helper.validarVacio(tbxPrecio.Text) || !Helper.validarObjetoNull(cboMarca.SelectedItem) || !Helper.validarObjetoNull(cboCategoria.SelectedItem))
+           {
+                MessageBox.Show("Por favor, complete todos los campos");
+                return true;
+           }
+           return false;
+        }
+
+        private void btnImagen_Click(object sender, EventArgs e)
+        {
+            imagen = new OpenFileDialog();
+            imagen.Filter = "jpg|*.jpg;|png|*.png";
+
+            if (imagen.ShowDialog() == DialogResult.OK)
+            {
+                tbxImagenUrl.Text = imagen.FileName;
+                Helper.cargarImagen(pbxNuevoArt, imagen.FileName);
+
+            }
+        }
     }
 }

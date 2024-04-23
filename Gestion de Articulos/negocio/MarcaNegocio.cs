@@ -51,16 +51,35 @@ namespace negocio
                 datos.setearParametro("@Descripcion", marca.Descripcion);
                 datos.ejecutarLectura();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
             finally
             {
                 datos.cerrarConexion();
             }
 
+        }
+
+        public void eliminar(Marca marca)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Delete from MARCAS where Id=@id");
+                datos.setearParametro("@Id", marca.Id);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }

@@ -46,16 +46,35 @@ namespace negocio
                 datos.setearParametro("@Descripcion", categoria.Descripcion);
                 datos.ejecutarLectura();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
             finally
             {
                 datos.cerrarConexion();
             }
 
+        }
+
+        public void eliminar(Categoria categoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Delete from CATEGORIAS where Id=@id");
+                datos.setearParametro("@id", categoria.Id);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }

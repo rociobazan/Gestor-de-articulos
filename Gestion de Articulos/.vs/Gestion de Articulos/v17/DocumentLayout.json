@@ -3,28 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0420E5B-BC9C-439C-9053-8D49C7E3A2D7}|Gestion de Articulos\\Gestion de Articulos.csproj|c:\\users\\rooba\\desktop\\gestor de articulos\\gestion de articulos\\gestion de articulos\\frmmarcascategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0420E5B-BC9C-439C-9053-8D49C7E3A2D7}|Gestion de Articulos\\Gestion de Articulos.csproj|solutionrelative:gestion de articulos\\frmmarcascategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C0420E5B-BC9C-439C-9053-8D49C7E3A2D7}|Gestion de Articulos\\Gestion de Articulos.csproj|c:\\users\\rooba\\desktop\\gestor de articulos\\gestion de articulos\\gestion de articulos\\frmmarcascategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C0420E5B-BC9C-439C-9053-8D49C7E3A2D7}|Gestion de Articulos\\Gestion de Articulos.csproj|solutionrelative:gestion de articulos\\frmmarcascategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E4EC984-3B04-438A-A944-81220CDD8C68}|negocio\\negocio.csproj|c:\\users\\rooba\\desktop\\gestor de articulos\\gestion de articulos\\negocio\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4EC984-3B04-438A-A944-81220CDD8C68}|negocio\\negocio.csproj|solutionrelative:negocio\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E4EC984-3B04-438A-A944-81220CDD8C68}|negocio\\negocio.csproj|c:\\users\\rooba\\desktop\\gestor de articulos\\gestion de articulos\\negocio\\marcanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4EC984-3B04-438A-A944-81220CDD8C68}|negocio\\negocio.csproj|solutionrelative:negocio\\marcanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E4EC984-3B04-438A-A944-81220CDD8C68}|negocio\\negocio.csproj|c:\\users\\rooba\\desktop\\gestor de articulos\\gestion de articulos\\negocio\\categorianegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4EC984-3B04-438A-A944-81220CDD8C68}|negocio\\negocio.csproj|solutionrelative:negocio\\categorianegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E4EC984-3B04-438A-A944-81220CDD8C68}|negocio\\negocio.csproj|c:\\users\\rooba\\desktop\\gestor de articulos\\gestion de articulos\\negocio\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4EC984-3B04-438A-A944-81220CDD8C68}|negocio\\negocio.csproj|solutionrelative:negocio\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CategoriaNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\negocio\\CategoriaNegocio.cs",
-              "RelativeDocumentMoniker": "negocio\\CategoriaNegocio.cs",
-              "ToolTip": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\negocio\\CategoriaNegocio.cs",
-              "RelativeToolTip": "negocio\\CategoriaNegocio.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAIwC8AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:47:15.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MarcaNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\negocio\\MarcaNegocio.cs",
-              "RelativeDocumentMoniker": "negocio\\MarcaNegocio.cs",
-              "ToolTip": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\negocio\\MarcaNegocio.cs",
-              "RelativeToolTip": "negocio\\MarcaNegocio.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAIwD8AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T16:15:50.784Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmMarcasCategorias.cs",
-              "DocumentMoniker": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\Gestion de Articulos\\frmMarcasCategorias.cs",
-              "RelativeDocumentMoniker": "Gestion de Articulos\\frmMarcasCategorias.cs",
-              "ToolTip": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\Gestion de Articulos\\frmMarcasCategorias.cs",
-              "RelativeToolTip": "Gestion de Articulos\\frmMarcasCategorias.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAtwCMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T16:07:58.077Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "frmMarcasCategorias.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\Gestion de Articulos\\frmMarcasCategorias.cs",
               "RelativeDocumentMoniker": "Gestion de Articulos\\frmMarcasCategorias.cs",
               "ToolTip": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\Gestion de Articulos\\frmMarcasCategorias.cs [Dise\u00F1o]",
               "RelativeToolTip": "Gestion de Articulos\\frmMarcasCategorias.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T15:53:18.664Z",
+              "WhenOpened": "2024-04-23T02:25:17.564Z",
               "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccesoDatos.cs",
-              "DocumentMoniker": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\negocio\\AccesoDatos.cs",
-              "RelativeDocumentMoniker": "negocio\\AccesoDatos.cs",
-              "ToolTip": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\negocio\\AccesoDatos.cs",
-              "RelativeToolTip": "negocio\\AccesoDatos.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAgwC4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T15:07:57.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ArticuloNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\negocio\\ArticuloNegocio.cs",
-              "RelativeDocumentMoniker": "negocio\\ArticuloNegocio.cs",
-              "ToolTip": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\negocio\\ArticuloNegocio.cs",
-              "RelativeToolTip": "negocio\\ArticuloNegocio.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAwE4AAABTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T02:26:09.008Z",
-              "EditorCaption": ""
             }
           ]
         }

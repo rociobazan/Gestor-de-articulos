@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetalles));
             this.pbxDetalles = new System.Windows.Forms.PictureBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
@@ -59,7 +60,7 @@
             this.lblNombre.Location = new System.Drawing.Point(377, 48);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(65, 20);
-            this.lblNombre.TabIndex = 1;
+            this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre";
             // 
             // lblCodigo
@@ -77,7 +78,7 @@
             this.lblDescripcion.Location = new System.Drawing.Point(350, 140);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(92, 20);
-            this.lblDescripcion.TabIndex = 3;
+            this.lblDescripcion.TabIndex = 4;
             this.lblDescripcion.Text = "Descripcion";
             // 
             // lblMarca
@@ -86,7 +87,7 @@
             this.lblMarca.Location = new System.Drawing.Point(383, 183);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(53, 20);
-            this.lblMarca.TabIndex = 4;
+            this.lblMarca.TabIndex = 6;
             this.lblMarca.Text = "Marca";
             // 
             // label1
@@ -95,7 +96,7 @@
             this.label1.Location = new System.Drawing.Point(364, 231);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 20);
-            this.label1.TabIndex = 5;
+            this.label1.TabIndex = 8;
             this.label1.Text = "Categoria";
             // 
             // lblPrecio
@@ -104,7 +105,7 @@
             this.lblPrecio.Location = new System.Drawing.Point(383, 283);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(53, 20);
-            this.lblPrecio.TabIndex = 6;
+            this.lblPrecio.TabIndex = 10;
             this.lblPrecio.Text = "Precio";
             // 
             // lblInsertNombre
@@ -114,7 +115,7 @@
             this.lblInsertNombre.Name = "lblInsertNombre";
             this.lblInsertNombre.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblInsertNombre.Size = new System.Drawing.Size(0, 20);
-            this.lblInsertNombre.TabIndex = 13;
+            this.lblInsertNombre.TabIndex = 1;
             // 
             // lblInsertCodigo
             // 
@@ -122,7 +123,7 @@
             this.lblInsertCodigo.Location = new System.Drawing.Point(484, 92);
             this.lblInsertCodigo.Name = "lblInsertCodigo";
             this.lblInsertCodigo.Size = new System.Drawing.Size(0, 20);
-            this.lblInsertCodigo.TabIndex = 14;
+            this.lblInsertCodigo.TabIndex = 3;
             // 
             // lblInsertDescripcion
             // 
@@ -130,7 +131,7 @@
             this.lblInsertDescripcion.Location = new System.Drawing.Point(484, 140);
             this.lblInsertDescripcion.Name = "lblInsertDescripcion";
             this.lblInsertDescripcion.Size = new System.Drawing.Size(0, 20);
-            this.lblInsertDescripcion.TabIndex = 15;
+            this.lblInsertDescripcion.TabIndex = 5;
             // 
             // lblInsertMarca
             // 
@@ -138,7 +139,7 @@
             this.lblInsertMarca.Location = new System.Drawing.Point(484, 183);
             this.lblInsertMarca.Name = "lblInsertMarca";
             this.lblInsertMarca.Size = new System.Drawing.Size(0, 20);
-            this.lblInsertMarca.TabIndex = 16;
+            this.lblInsertMarca.TabIndex = 7;
             // 
             // lblInsertCategoria
             // 
@@ -146,7 +147,7 @@
             this.lblInsertCategoria.Location = new System.Drawing.Point(488, 231);
             this.lblInsertCategoria.Name = "lblInsertCategoria";
             this.lblInsertCategoria.Size = new System.Drawing.Size(0, 20);
-            this.lblInsertCategoria.TabIndex = 17;
+            this.lblInsertCategoria.TabIndex = 9;
             // 
             // lblInsertPrecio
             // 
@@ -154,7 +155,7 @@
             this.lblInsertPrecio.Location = new System.Drawing.Point(488, 283);
             this.lblInsertPrecio.Name = "lblInsertPrecio";
             this.lblInsertPrecio.Size = new System.Drawing.Size(0, 20);
-            this.lblInsertPrecio.TabIndex = 18;
+            this.lblInsertPrecio.TabIndex = 11;
             // 
             // frmDetalles
             // 
@@ -174,7 +175,12 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.pbxDetalles);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(819, 403);
+            this.MinimumSize = new System.Drawing.Size(819, 403);
             this.Name = "frmDetalles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDetalles";
             this.Load += new System.EventHandler(this.frmDetalles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxDetalles)).EndInit();

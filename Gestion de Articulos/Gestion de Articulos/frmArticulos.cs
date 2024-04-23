@@ -19,6 +19,7 @@ namespace Gestion_de_Articulos
         public frmArticulos()
         {
             InitializeComponent();
+            Text = "Gestor de Artículos";
         }
 
         private void frmArticulos_Load(object sender, EventArgs e)
@@ -27,13 +28,11 @@ namespace Gestion_de_Articulos
             {
                 cargar();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.ToString());
             }
 
-            
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -41,20 +40,9 @@ namespace Gestion_de_Articulos
             if(dgvArticulos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.ImagenUrl);
+                Helper.cargarImagen(pbxArticulo, seleccionado.ImagenUrl);
             }
-        }
-
-        public void cargarImagen(String imagen)
-        {
-            try
-            {
-                pbxArticulo.Load(imagen);
-            }
-            catch
-            {
-                pbxArticulo.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?w=740");
-            }
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -66,14 +54,22 @@ namespace Gestion_de_Articulos
 
         private void cargar()
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulo = negocio.listar();
-            dgvArticulos.DataSource = listaArticulo;
-            ocultarColumnas();
-            cargarImagen(listaArticulo[0].ImagenUrl);
-            cboCampo.Items.Add("Nombre");
-            cboCampo.Items.Add("Codigo");
-            cboCampo.Items.Add("Precio");
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                listaArticulo = negocio.listar();
+                dgvArticulos.DataSource = listaArticulo;
+                ocultarColumnas();
+                Helper.cargarImagen(pbxArticulo, listaArticulo[0].ImagenUrl);
+                cboCampo.Items.Add("Nombre");
+                cboCampo.Items.Add("Codigo");
+                cboCampo.Items.Add("Precio");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void ocultarColumnas()
@@ -85,11 +81,25 @@ namespace Gestion_de_Articulos
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;
-            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-
-            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
-            modificar.ShowDialog();
-            cargar();
+            try
+            {
+                if (Helper.validarObjetoNull(dgvArticulos.CurrentRow))
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+                    modificar.ShowDialog();
+                    cargar();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un artículo a modificar");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         
@@ -99,6 +109,13 @@ namespace Gestion_de_Articulos
             Articulo seleccionado;
             try
             {
+                if (!Helper.validarObjetoNull(dgvArticulos.CurrentRow)) 
+                {
+                    MessageBox.Show("Por favor, seleccione un artículo");
+                    return;
+                }
+                    
+
                 DialogResult respuesta = MessageBox.Show("Estás seguro que quieres eliminarlo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
@@ -107,17 +124,32 @@ namespace Gestion_de_Articulos
                     cargar();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void btnVerDetalle_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            frmDetalles ventanaDetalles = new frmDetalles(seleccionado);
-            ventanaDetalles.ShowDialog();
+            try
+            {
+                if (Helper.validarObjetoNull(dgvArticulos.CurrentRow))
+                {
+                    Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    frmDetalles ventanaDetalles = new frmDetalles(seleccionado);
+                    ventanaDetalles.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un artículo");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
         
 
@@ -164,16 +196,32 @@ namespace Gestion_de_Articulos
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
+                if (Helper.validarFiltro(cboCampo) || Helper.validarFiltro(cboCriterio))
+                {
+                    return;
+                }
+
+                if(cboCampo.SelectedItem.ToString() == "Precio")
+                {
+                    if(!Helper.validarVacio(tbxFiltroAvanzado.Text))
+                    {
+                        MessageBox.Show("Debes cargar el filtro para realizar la búsqueda");
+                        return; 
+                    }
+                    if (!Helper.soloNumeros(tbxFiltroAvanzado.Text))
+                    {
+                        return;
+                    }
+                }
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = tbxFiltroAvanzado.Text;
                 dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -189,6 +237,12 @@ namespace Gestion_de_Articulos
         {
             frmMarcasCategorias frmMarcasCategorias = new frmMarcasCategorias();
             frmMarcasCategorias.ShowDialog();
+        }
+
+        private void btnEliminarMarcasCategorias_Click(object sender, EventArgs e)
+        {
+            frmEliminarMarcaCategoria eliminar = new frmEliminarMarcaCategoria();
+            eliminar.ShowDialog();
         }
     }
       

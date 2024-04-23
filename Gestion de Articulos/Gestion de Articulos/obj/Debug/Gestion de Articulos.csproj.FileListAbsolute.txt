@@ -32,3 +32,4 @@ C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Artic
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion_de_Articulos.frmAltaArticulo.resources
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion_de_Articulos.frmDetalles.resources
 C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion_de_Articulos.frmMarcasCategorias.resources
+C:\Users\rooba\Desktop\Gestor de Articulos\Gestion de Articulos\Gestion de Articulos\obj\Debug\Gestion_de_Articulos.frmEliminarMarcaCategoria.resources

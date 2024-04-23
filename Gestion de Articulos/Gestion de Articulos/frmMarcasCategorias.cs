@@ -17,31 +17,75 @@ namespace Gestion_de_Articulos
         public frmMarcasCategorias()
         {
             InitializeComponent();
+            Text = "Agregar Marcas/Categorías";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Marca marca = new Marca();
-            Categoria categoria = new Categoria();
+            Marca marcaNueva = new Marca();
+            Categoria categoriaNueva = new Categoria();
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-
+            
             try
             {
-                marca.Descripcion = tbxMarca.Text;
-                categoria.Descripcion = tbxCategoria.Text;
+                marcaNueva.Descripcion = tbxMarca.Text;
+                categoriaNueva.Descripcion = tbxCategoria.Text;
+                List<Marca> listaMarcas = marcaNegocio.listar();
+                List<Categoria> listaCategorias = categoriaNegocio.listar();
+                
 
-                categoriaNegocio.agregar(categoria);
-                marcaNegocio.agregar(marca);
+                if (Helper.validarVacio(marcaNueva.Descripcion)) 
+                {
+                    bool estaRepetido = listaMarcas.Any(Marca => Marca.Descripcion == categoriaNueva.Descripcion);
+                    if (!estaRepetido)
+                    {
+                        marcaNegocio.agregar(marcaNueva);
+                        MessageBox.Show("Marca agregada exitosamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La marca que intenta ingresar ya existe");
+                        return;
+                    }
+                }
+                    
+                if (Helper.validarVacio(categoriaNueva.Descripcion))
+                {
+                    bool estaRepetido = listaCategorias.Any(Categoria => Categoria.Descripcion == categoriaNueva.Descripcion);
+                    if (!estaRepetido)
+                    {
+                        categoriaNegocio.agregar(categoriaNueva);
+                        MessageBox.Show("Categoria agregada exitosamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La categoría que intenta ingresar ya existe");
+                        return;
+                    }
+                }
 
-                MessageBox.Show("Agregado exitosamente");
+                if(!Helper.validarVacio(marcaNueva.Descripcion) && !Helper.validarVacio(categoriaNueva.Descripcion))
+                {
+                    MessageBox.Show("Por favor, ingrese un dato");
+                    return;
+                }
+                  
+                Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.ToString());
             }
 
         }
+
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        
     }
 }

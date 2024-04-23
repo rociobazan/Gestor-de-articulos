@@ -22,11 +22,11 @@ namespace Gestion_de_Articulos
         {
             InitializeComponent();
             this.articulo = seleccionado;
+            Text = "Ver detalles";
         }
 
         private void frmDetalles_Load(object sender, EventArgs e)
         {
-            
             try
             {
                 lblInsertNombre.Text = articulo.Nombre;
@@ -35,26 +35,15 @@ namespace Gestion_de_Articulos
                 lblInsertMarca.Text = articulo.Marca.ToString();
                 lblInsertCategoria.Text = articulo.Categoria.ToString();
                 lblInsertPrecio.Text = articulo.Precio.ToString();
-                cargarImagen(articulo.ImagenUrl);
+                Helper.cargarImagen(pbxDetalles, articulo.ImagenUrl);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.ToString());
             }
         }
-        public void cargarImagen(String imagen)
-        {
-            try
-            {
-                pbxDetalles.Load(imagen);
-            }
-            catch
-            {
-                pbxDetalles.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?w=740");
-            }
-        }
+        
     }
 
 }
