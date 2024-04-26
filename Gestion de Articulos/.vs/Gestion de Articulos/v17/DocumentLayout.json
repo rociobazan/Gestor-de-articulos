@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0420E5B-BC9C-439C-9053-8D49C7E3A2D7}|Gestion de Articulos\\Gestion de Articulos.csproj|c:\\users\\rooba\\desktop\\gestor de articulos\\gestion de articulos\\gestion de articulos\\frmmarcascategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C0420E5B-BC9C-439C-9053-8D49C7E3A2D7}|Gestion de Articulos\\Gestion de Articulos.csproj|solutionrelative:gestion de articulos\\frmmarcascategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C0420E5B-BC9C-439C-9053-8D49C7E3A2D7}|Gestion de Articulos\\Gestion de Articulos.csproj|c:\\users\\rooba\\desktop\\gestor de articulos\\gestion de articulos\\gestion de articulos\\helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0420E5B-BC9C-439C-9053-8D49C7E3A2D7}|Gestion de Articulos\\Gestion de Articulos.csproj|solutionrelative:gestion de articulos\\helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmMarcasCategorias.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\Gestion de Articulos\\frmMarcasCategorias.cs",
-              "RelativeDocumentMoniker": "Gestion de Articulos\\frmMarcasCategorias.cs",
-              "ToolTip": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\Gestion de Articulos\\frmMarcasCategorias.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Gestion de Articulos\\frmMarcasCategorias.cs [Dise\u00F1o]",
+              "Title": "Helper.cs",
+              "DocumentMoniker": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\Gestion de Articulos\\Helper.cs",
+              "RelativeDocumentMoniker": "Gestion de Articulos\\Helper.cs",
+              "ToolTip": "C:\\Users\\rooba\\Desktop\\Gestor de Articulos\\Gestion de Articulos\\Gestion de Articulos\\Helper.cs",
+              "RelativeToolTip": "Gestion de Articulos\\Helper.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T02:25:17.564Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-04-26T19:38:15.957Z",
+              "EditorCaption": ""
             }
           ]
         }

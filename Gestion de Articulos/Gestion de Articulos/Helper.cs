@@ -42,10 +42,31 @@ namespace Gestion_de_Articulos
         {
             foreach (char caracter in cadena)
             {
-                if (!char.IsNumber(caracter) && char.IsDigit(caracter))
+                if (!char.IsNumber(caracter))
                 {
-                    MessageBox.Show("Ingrese sólo números por favor");
-                    return false;
+                     MessageBox.Show("Ingrese sólo números enteros por favor");
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        public static bool numerosDecimales(String cadena)
+        {
+            bool signoDecimal = false;
+            foreach (char caracter in cadena)
+            {
+                if (!char.IsDigit(caracter))
+                {
+                    if ((caracter == '.' || caracter == ',') && !signoDecimal)
+                    {
+                        signoDecimal = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese sólo números por favor");
+                        return false;
+                    }
                 }
             }
             return true;

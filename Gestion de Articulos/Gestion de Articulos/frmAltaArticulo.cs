@@ -86,7 +86,7 @@ namespace Gestion_de_Articulos
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 articulo.ImagenUrl = tbxImagenUrl.Text;
-                if (!Helper.soloNumeros(tbxPrecio.Text))
+                if (!Helper.numerosDecimales(tbxPrecio.Text))
                     return;
                 articulo.Precio = Decimal.Parse(tbxPrecio.Text);
                 
